@@ -2,13 +2,14 @@
 # Examination Number:
 
 def get_grade(result):
-    grade = "Unsuccessful"
-
     if result >= 80:
         grade = "Distinction"
     elif result >= 65:
         grade = "Upper Merit"
-
+    elif results >= 40:
+        grade = "Pass"
+    else:
+        grade = "Unsuccessful"
     return grade
 
 
@@ -25,4 +26,24 @@ for i in range(N):
 arithmetic_mean = round(total/len(results),2)
 
 # Display the answer
-print("The mean percentage mark is", arithmetic_mean)
+print("The mean percentage mark is", arithmetic_mean) 
+grade = get_grade(arithmetic_mean)
+print("The grade for average results is", grade)
+
+lowest = min(results)
+highest = max(results)
+print("the lowest resut is", lowest)
+print("the highest resut is", highest)
+
+count_under_40 = 0 
+count_50_79 = 0 
+
+for score in results: 
+  if score < 40:
+    count_under_40 +=1
+  if 50 <= score <= 79:
+    count_50_79 +=1 
+   
+   print("number of scores below 40 : ",count_under_40 ) 
+   print("number of scores between 50 and 79 : ",count_50_79)
+    
